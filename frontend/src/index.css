@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* Geist isn't in Google Fonts easily, fallback to Inter/system-ui for now if Geist isn't loaded, or import a CDN if possible. We'll use local/system UI for Geist if unavailable. */
+
+@layer base {
+  :root {
+    /* LIGHT MODE (Clean & crisp standard) */
+    --bg-base: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border-subtle: #e2e8f0;
+    --brand-primary: #494bd6; /* Inverse primary */
+    --brand-secondary: #06B6D4;
+    --status-approved: #10B981;
+    --status-rework: #F43F5E;
+    --status-submitted: #F59E0B;
+    --status-draft: #64748B;
+  }
+
+  .dark {
+    /* DARK MODE (Celestial Velocity) */
+    --bg-base: #0B1020; /* background-deep */
+    --bg-surface: #0b1326; /* surface */
+    --bg-surface-elevated: #171f33; /* surface-container */
+    --text-primary: #dae2fd; /* on-surface */
+    --text-secondary: #c7c4d7; /* on-surface-variant */
+    --border-subtle: #464554; /* outline-variant */
+    --brand-primary: #c0c1ff; /* primary */
+    --brand-secondary: #fbabff; /* secondary */
+    --brand-cyan: #06B6D4; /* accent-cyan */
+    --status-approved: #10B981;
+    --status-rework: #F43F5E;
+    --status-submitted: #F59E0B;
+    --status-draft: #64748B;
+  }
+
+  body {
+    @apply antialiased bg-gray-50 dark:bg-[#0B1020] text-gray-900 dark:text-[#dae2fd] transition-colors duration-300 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Geist', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Glassmorphism utilities tailored to Celestial Velocity */
+@layer utilities {
+  .glass-panel {
+    @apply backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+  .glow-active {
+    box-shadow: 0 0 15px 0 var(--brand-primary);
+    opacity: 0.8;
+  }
+}
